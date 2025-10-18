@@ -1,0 +1,116 @@
+﻿<Window x:Class="Employee_Task.EmployeeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Employee_Task"
+        mc:Ignorable="d"
+        Title="View Task" Height="900" Width="800" MinHeight="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Label 
+                Content="View Task"
+                FontSize="18"
+                FontWeight="Bold"
+                BorderBrush="Black"
+                BorderThickness="2"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <TextBlock x:Name="txt_name"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                        FontSize="30" FontWeight="Bold"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Label 
+                Content="Pending/In Progress"
+                   FontSize="25" 
+                   FontWeight="SemiBold"
+                   Width="250" HorizontalAlignment="Left"
+                   Background="#FFD5CECE"/>
+        </Grid>
+        <Grid Grid.Row="3" Margin="20" >
+            <DataGrid x:Name="Progress" 
+                      BorderBrush="Black"
+                      BorderThickness="3"
+                      AutoGenerateColumns="True"
+                      IsReadOnly="True"
+                      CanUserAddRows="False"
+                      FontSize="18" Width="550"  HorizontalAlignment="Left"/>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Column="0">
+                <Label Content="Task:"
+                       FontSize="25"
+                       FontWeight="SemiBold"
+                       Width="80"
+                       Height="50"/>
+                <TextBox  x:Name="txt_TaskId"
+                    Width="60"
+                    Height="50"
+                    BorderBrush="Black"
+                    BorderThickness="5"
+                          FontSize="20"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
+                          />
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal" Grid.Column="1">
+                <Label Content="Status:"
+                      FontSize="25"
+                     FontWeight="SemiBold"
+                      Width="100"
+                      Height="50"/>
+                <ComboBox 
+                    x:Name="cmb_status"
+                    Width="250"
+                     Height="30"/>
+            </StackPanel>
+            <Grid Grid.Column="2">
+                <Button x:Name="btn_save"
+                        Width="150"
+                        Height="50"
+                        Content="Save"
+                        FontSize="25"
+                        FontWeight="SemiBold"
+                        BorderBrush="Black"
+                        BorderThickness="4" Click="Button_Click"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="5">
+            <Label 
+                Content="Completed:"
+                FontSize="25"
+                FontWeight="Bold"
+                Width="170"
+                HorizontalAlignment="Left" 
+                Background="#FFD5CECE"
+                Height="50"/>
+        </Grid>
+        <Grid Grid.Row="6" >
+            <DataGrid
+                BorderBrush="Black"
+                BorderThickness="3"
+                Margin="20" FontSize="18"
+                x:Name="completed"
+                AutoGenerateColumns="True"
+                CanUserAddRows="False"
+                IsReadOnly="True" Width="550" HorizontalAlignment="Left">
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Window>
